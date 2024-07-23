@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: echo 'Hello, Windows'
       - run: uname -a
+      - run: where docker
       - run: sudo docker version
 
   build_machine:
