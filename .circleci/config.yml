@@ -4,15 +4,18 @@ jobs:
   build_windows:
     machine:
       image: windows-default
+    resource_class: windows.medium 
     steps:
       - checkout
-      - run: Write-Host 'Hello, Windows'
+      - run: echo 'Hello, Windows'
+      - run: uname -a
 
   build_machine:
     machine: true
     steps:
       - checkout
       - run: echo 'Hello, Machine'
+      - run: uname -a
 
 workflows:
   version: 2
