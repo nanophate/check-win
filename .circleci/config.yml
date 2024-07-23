@@ -1,0 +1,10 @@
+version: 2.1
+
+jobs:
+  build: # name of your job
+    machine:
+      image: windows-default
+    resource_class: windows.medium # can be medium, large, xlarge, 2xlarge
+    steps:
+        - checkout
+        - run: Write-Host 'Hello, Windows'
