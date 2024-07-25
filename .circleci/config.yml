@@ -10,7 +10,15 @@ jobs:
       - run: echo 'Hello, Windows'
       - run: uname -a
       - run: where docker
-      - run: sudo docker version
+      - run:
+         command: wmic product get name,version
+         shell: cmd.exe
+      - run:
+         command: choco list --local-only
+         shell: cmd.exe
+      - run:
+         command: Get-WmiObject -Class Win32_Product | Select-Object -Property Name, Version
+         shell: powershell.exe
 
   build_machine:
     machine: true
